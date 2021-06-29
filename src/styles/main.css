@@ -1,0 +1,187 @@
+a {
+  text-decoration: none;
+  color: #fff;
+  min-height: 44px;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Nunito", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  margin: 0px auto;
+  font-size: 26px;
+  padding: 40px 0px;
+  color: var(--primary-blue);
+  text-align: center;
+}
+
+h1 span {
+  font-weight: 400;
+}
+
+section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.content {
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.content h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary-blue);
+  border-bottom: 1px solid var(--primary-yellow);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #7c7c7c;
+  text-align: justify;
+}
+
+/* Jumbotron || Hero */
+#jumbotron {
+  background: url("/images/heros/hero-image_4.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0 !important;
+  margin-top: 0;
+  max-width: 100%;
+  padding:5% 10%;
+}
+
+#jumbotron h1 {
+  margin-top: 40px;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+#jumbotron p {
+  background: rgba(255, 255, 155, 0.35);
+  margin: 0 auto;
+  width: 85%;
+  padding: 1.8rem;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #fff;
+  line-height: 1.2em;
+  color: #fff;
+  font-weight: 600;
+}
+
+@media screen
+    and (min-device-width: 320px)
+    and (max-device-width: 640) {
+      #jumbotron {
+        width: 100%;
+        margin-bottom: 0 !important;
+        padding:0 20px;
+        z-index: 2;
+      }
+      
+      #jumbotron h1 {
+        color: #fff;
+        font-weight: bolder;
+        font-size: 2.4rem;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+      #jumbotron p {
+        padding: .5rem;
+        text-align: center;
+        font-size: 1.1rem;
+        color: #fff;
+        line-height: 1em;
+        color: #fff;
+        font-weight: 400;
+      }
+
+      .btn-in-hero {
+        font-size: 16px !important;
+      }
+    }
+
+
+
+.btn-in-hero {
+  background: var(--primary-yellow);
+  padding: 10px 15px;
+  border-radius: 2.5px;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+.btn-in-hero:hover {
+  background-color: var(--primary-blue);
+  color: var(--primary-yellow);
+  transition: all 0.5s ease-in-out 0s;
+}
+
+/* Food list */
+#our-foods{
+    width: 100%;
+    padding-top: 60px;
+}
+
+#our-foods h2{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 0px;
+}
+
+/* Media Query */
+@media only screen and (max-width: 980px) {
+  .content {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  h1 {
+    padding: 25px 0px;
+  }
+  h1 span {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  section {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  h1 {
+    font-size: 20px;
+  }
+  label {
+    padding: 5px 0px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  h1 {
+    padding: 20px 0px;
+  }
+}
