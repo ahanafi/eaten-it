@@ -7,6 +7,7 @@ import '../styles/detail.css';
 
 import App from './views/app';
 import serviceWorkerRegister from './utils/service-worker-register';
+// import appBar from './components/app-bar';
 
 const navbar = document.getElementById('navbar');
 const navbarToggle = navbar.querySelector('.navbar-toggle');
