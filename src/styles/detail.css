@@ -144,7 +144,6 @@
   overflow-y: scroll;
   background-color: #dedede;
   padding:10px 15px;
-
 }
 
 .review-item{
@@ -172,7 +171,6 @@
 }
 
 #review-form{
-  padding:0 20px;
   width: 40%;
 }
 
@@ -223,4 +221,58 @@
   background-color: var(--primary-yellow);
   transition: all 0.5s ease-in-out 0s;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 980px) {
+  #reviews {
+    width: 50%;  
+  }
+  #review-form{
+    width: 50%;
+  }
+  .review-item > .review-text{
+    font-size: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  #resto-info{
+    display: flex;
+    flex-direction: column;
+  }
+  #resto-info > .resto-image{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .resto-image,
+  .resto-full-info{
+    width: 100%;
+  }
+  #container-review{
+    flex-direction: column;
+  }
+  #reviews, #review-form{
+    width: 100%;  
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  section {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  h1 {
+    font-size: 20px;
+  }
+  label {
+    padding: 5px 0px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  h1 {
+    padding: 20px 0px;
+  }
 }

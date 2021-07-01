@@ -58,19 +58,15 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
             <td>:</td>
             <td>${categories}</td>
           </tr>
-          <tr>
-            <td colspan='3'>
-              <i class='fa fa-info-circle'></i>
-              Decriptions
-            </td>
-          </tr>
-          <tr>
-            <td colspan='3' class='reto-desc'>
-              ${resto.description}
-            </td>
-          </tr>
         </table>
       </div>
+    </div>
+    <div id='resto-foods'>
+      <h3>
+        <i class='fa fa-info-circle'></i>
+        Description :
+      </h3>
+      ${resto.description}
     </div>
     <div id='resto-foods'>
       <h3>

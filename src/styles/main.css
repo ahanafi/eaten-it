@@ -9,16 +9,16 @@ li {
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   font-family: "Nunito", sans-serif;
   scroll-behavior: smooth;
 }
 
 h1 {
-  margin: 0px auto;
+  margin: 0 auto;
   font-size: 26px;
-  padding: 40px 0px;
+  padding: 40px 0;
   color: var(--primary-blue);
   text-align: center;
 }
@@ -30,7 +30,7 @@ h1 span {
 section {
   width: 100%;
   max-width: 1200px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 .content {
   margin-bottom: 60px;
@@ -63,22 +63,28 @@ section {
     text-align: center;
     font-weight: bold;
     font-size: 1.8rem;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 /* Media Query */
 @media only screen and (max-width: 980px) {
   .content {
-    width: 70%;
+    width: 80%;
+  }
+  #our-foods{
+    width: 80%;
   }
 }
 
 @media only screen and (max-width: 568px) {
   h1 {
-    padding: 25px 0px;
+    padding: 25px 0;
   }
   h1 span {
     display: block;
+  }
+  #main-content{
+    margin-top:50px;
   }
 }
 
@@ -93,12 +99,12 @@ section {
     font-size: 20px;
   }
   label {
-    padding: 5px 0px;
+    padding: 5px 0;
   }
 }
 
 @media only screen and (max-width: 320px) {
   h1 {
-    padding: 20px 0px;
+    padding: 20px 0;
   }
 }
