@@ -66,7 +66,7 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
         <i class='fa fa-info-circle'></i>
         Description :
       </h3>
-      ${resto.description}
+      <p class='resto-desc'>${resto.description}</p>
     </div>
     <div id='resto-foods'>
       <h3>

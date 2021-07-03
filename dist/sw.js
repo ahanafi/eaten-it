@@ -1,6 +1,15 @@
 var serviceWorkerOption = {
   "assets": [
     "/5d982326781d6f8ea98b7c2d8f958fc5.jpg",
+    "/eb6ea8426b24f7989e457f1c4fdb5668.jpg",
+    "/95f9ef57230bd0d4c8ed8a07707ccbd4.jpg",
+    "/f5bf53abaa1c9c029d5c228be035cbf4.jpg",
+    "/384d91d0863e685f508b0d096cd5d0b0.jpg",
+    "/f4cadf258273514e600187b5c5e163be.jpg",
+    "/d41de1a988083d6243e14eb3d498ae37.jpg",
+    "/1ba6d10e62092bcb7259fe9d323215f1.jpg",
+    "/d1731a89ef990e72c3a182a99c409469.jpg",
+    "/f93acae66c56e9c2215fef23381824ad.jpg",
     "/bundle.js",
     "/manifest.json",
     "/icons/icon-128x128.png",
@@ -8,16 +17,16 @@ var serviceWorkerOption = {
     "/icons/icon-32x32.png",
     "/icons/icon-512x512.png",
     "/icons/icon-64x64.png",
-    "/images/foods/1.jpg",
-    "/images/foods/2.jpg",
-    "/images/foods/3.jpg",
-    "/images/foods/4.jpg",
-    "/images/foods/5.jpg",
     "/images/drinks/1.jpg",
     "/images/drinks/2.jpg",
     "/images/drinks/3.jpg",
     "/images/drinks/4.jpg",
     "/images/heros/hero-image_4.jpg",
+    "/images/foods/1.jpg",
+    "/images/foods/2.jpg",
+    "/images/foods/3.jpg",
+    "/images/foods/4.jpg",
+    "/images/foods/5.jpg",
     "/index.html"
   ]
 };

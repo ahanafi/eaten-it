@@ -69,8 +69,10 @@
   color: var(--primary-blue) !important;
 }
 
-.reto-desc{
-  font-weight: normal !important;
+.resto-desc{
+  font-size: 1.2rem !important;
+  font-weight: 500;
+  color: #333 !important;
 }
 
 #resto-foods h3,
@@ -105,13 +107,14 @@
   padding:10px;
   border-radius: 5px;
   width: 300px;
-  height: 180px;
+  height: 190px;
   background-color: #fefefe;
   box-shadow: 3px 2px 2px #ccc;
 }
 
 .food-item h4{
   margin-top: 5px;
+  font-size: 1.2rem;
 }
 
 .food-item > img{
@@ -158,10 +161,12 @@
 .reviewer {
   margin-bottom: 5px;
   border-bottom: 1px solid #333;
+  font-size: 1.4rem !important;
 }
 
 .review-date{
   font-weight: normal !important;
+  font-size: 1.2rem;
 }
 
 .review-item > .review-text{
@@ -204,6 +209,10 @@
 #review-form textarea {
   resize: none;
   height: 120px;
+}
+
+#review-form input, #submit-review{
+  min-height: 44px !important;
 }
 
 #submit-review {

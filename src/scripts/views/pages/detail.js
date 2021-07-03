@@ -48,7 +48,7 @@ const Detail = {
       const restoImage = arrFoodImages[index];
       restoFoods += `
         <li class='food-item'>
-          <img class='food-img' src='${restoImage}'>
+          <img class='food-img' src='${restoImage}' alt='${resto.name}'/>
           <h4>${ucWords(food.name.toString())}</h4>
         </li>`;
     });
@@ -60,7 +60,7 @@ const Detail = {
       const drinkImage = arrDrinkImages[index];
       restoDrinks += `
         <li class='food-item'>
-          <img class='food-img' src='${drinkImage}'>
+          <img class='food-img' src='${drinkImage}' alt='${drink.name}' />
           <h4>${ucWords(drink.name.toString())}</h4>
         </li>`;
     });
