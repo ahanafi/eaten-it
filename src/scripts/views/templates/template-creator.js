@@ -106,7 +106,9 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
             </tr>
             <tr>
               <td></td>
-              <td><button type='button' id='submit-review'>Submit My Review</button</td>
+              <td>
+                <button type='button' id='submit-review'>Submit My Review</button>
+              </td>
             </tr>
           </table>
         </div>
@@ -140,9 +142,14 @@ const createFavoritedButtonTemplate = () => `
   </button>
 `;
 
+const emptyFavoriteResto = () => `
+<h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant <br> to your favorite restaurants list</h2>
+`;
+
 export {
   createRestoItemTemplate,
   createRestoDetailTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
+  emptyFavoriteResto,
 };

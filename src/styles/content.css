@@ -124,3 +124,27 @@ footer > p {
   align-items: center;
   justify-content: center;
 }
+
+#empty-resto{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 52vh;
+}
+
+#empty-resto img{
+  height: 70%;
+}
+
+.empty-resto-text{
+  font-weight: 500 !important;
+  border-bottom: 0 !important;
+}
+
+.hidden{
+  display: none !important;
+  visibility: hidden !important;
+}
