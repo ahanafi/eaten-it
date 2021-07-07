@@ -1,6 +1,7 @@
 var serviceWorkerOption = {
   "assets": [
     "/5d982326781d6f8ea98b7c2d8f958fc5.jpg",
+    "/e692528e570d20ba08d5e32b48e03123.svg",
     "/eb6ea8426b24f7989e457f1c4fdb5668.jpg",
     "/95f9ef57230bd0d4c8ed8a07707ccbd4.jpg",
     "/f5bf53abaa1c9c029d5c228be035cbf4.jpg",
@@ -17,6 +18,7 @@ var serviceWorkerOption = {
     "/icons/icon-32x32.png",
     "/icons/icon-512x512.png",
     "/icons/icon-64x64.png",
+    "/images/oops.svg",
     "/images/drinks/1.jpg",
     "/images/drinks/2.jpg",
     "/images/drinks/3.jpg",
