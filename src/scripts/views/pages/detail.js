@@ -89,36 +89,41 @@ const Detail = {
 
     const btnSubmitReview = document.querySelector('#submit-review');
     btnSubmitReview.addEventListener('click', async () => {
-      const reviewerName = document.querySelector('#reviewer-name');
-      const reviewText = document.querySelector('#reviewer-text');
-
-      if (reviewerName === '' || reviewText === '') {
-        alert('Did you forget to fill out the form? Pls. try again!');
+      // Check online status first
+      if (!navigator.onLine) {
+        alert('Please, check your internet connection first before add the review!');
       } else {
-        const review = {
-          id: resto.id,
-          name: reviewerName.value,
-          review: reviewText.value,
-        };
-        const insertReview = await RestoDbSource.insertReview(review);
-        if (insertReview !== null) {
-          alert('Your review`s successfully inserted!');
+        const reviewerName = document.querySelector('#reviewer-name');
+        const reviewText = document.querySelector('#reviewer-text');
 
-          const reviews = document.querySelector('#reviews');
-          const lastReview = insertReview[insertReview.length - 1];
-          reviews.innerHTML += `
-            <div class='review-item'>
-              <h4 class='reviewer'>
-                ${lastReview.name} <span class='review-date'>at ${lastReview.date}  say's </span> :
-              </h4>
-              <p class='review-text'>${lastReview.review}</p>
-            </div>
-          `;
-
-          reviewerName.value = '';
-          reviewText.value = '';
+        if (reviewerName === '' || reviewText === '') {
+          alert('Did you forget to fill out the form? Pls. try again!');
         } else {
-          alert('Oops! We can`t save your review at this time. Pls. try again later!');
+          const review = {
+            id: resto.id,
+            name: reviewerName.value,
+            review: reviewText.value,
+          };
+          const insertReview = await RestoDbSource.insertReview(review);
+          if (insertReview !== null) {
+            alert('Your review`s successfully inserted!');
+  
+            const reviews = document.querySelector('#reviews');
+            const lastReview = insertReview[insertReview.length - 1];
+            reviews.innerHTML += `
+              <div class='review-item'>
+                <h4 class='reviewer'>
+                  ${lastReview.name} <span class='review-date'>at ${lastReview.date}  say's </span> :
+                </h4>
+                <p class='review-text'>${lastReview.review}</p>
+              </div>
+            `;
+  
+            reviewerName.value = '';
+            reviewText.value = '';
+          } else {
+            alert('Oops! We can`t save your review at this time. Pls. try again later!');
+          }
         }
       }
     });
