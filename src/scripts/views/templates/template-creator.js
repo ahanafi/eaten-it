@@ -119,7 +119,7 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
 const createRestoItemTemplate = (resto) => `
   <article class='resto-item'>
     <div class='resto-heading'>
-      <img class='resto-img' src='${CONFIG.BASE_IMAGE_URL + IMAGE_TYPE.DEFAULT + resto.pictureId}' alt='${resto.name}' />
+      <img class='resto-img' src='${CONFIG.BASE_IMAGE_URL + IMAGE_TYPE.SMALL + resto.pictureId}' alt='${resto.name}' />
     </div>
     <div class='resto-content'>
       <a href='#/detail/${resto.id}' class='resto-name'><h1>${resto.name}</h1></a>

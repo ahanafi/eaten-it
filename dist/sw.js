@@ -23,12 +23,12 @@ var serviceWorkerOption = {
     "/images/drinks/2.jpg",
     "/images/drinks/3.jpg",
     "/images/drinks/4.jpg",
-    "/images/heros/hero-image_4.jpg",
     "/images/foods/1.jpg",
     "/images/foods/2.jpg",
     "/images/foods/3.jpg",
     "/images/foods/4.jpg",
     "/images/foods/5.jpg",
+    "/images/heros/hero-image_4.jpg",
     "/index.html"
   ]
 };

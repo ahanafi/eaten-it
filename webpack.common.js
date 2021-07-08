@@ -1,9 +1,11 @@
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const { default: ImageminWebpackPlugin } = require('imagemin-webpack-plugin');
 const path = require('path');
+const ImageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -35,6 +37,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv({
+      allowEmptyValues: true,
+      systemvars: true,
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
@@ -47,7 +53,14 @@ module.exports = {
         },
       ],
     }),
-    new ImageminWebpackPlugin(),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 80,
+          progressive: true,
+        }),
+      ],
+    }),
     new ServiceWorkerWebpackPlugin({
       entry: path.resolve(__dirname, 'src/scripts/service-worker.js'),
     }),

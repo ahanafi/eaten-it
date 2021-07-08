@@ -10,8 +10,8 @@ Fitur yang harus ada pada aplikasi:
 
    Syarat:
    * Menerapkan End to End Test dengan skenario:
-   * Menyukai salah satu restoran.
-   * Batal menyukai restoran tersebut.
+     * Menyukai salah satu restoran.
+     * Batal menyukai restoran tersebut.
 
 3. **Image Optimization**
 
