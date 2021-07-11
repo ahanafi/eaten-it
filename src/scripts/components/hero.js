@@ -1,5 +1,6 @@
-import image from '../../public/images/heros/hero-image_4.jpg';
-
+// import image from '../../public/images/heros/hero-bg.jpg';
+import largeImage from '../../../dist/images/heros/hero-bg-large.jpg';
+import smallImage from '../../../dist/images/heros/hero-bg-small.jpg';
 class Hero extends HTMLElement {
   constructor() {
     super();
@@ -16,7 +17,7 @@ class Hero extends HTMLElement {
     this.shadowDOM.innerHTML = `
         <style>
           #jumbotron{
-            background: url("${image}");
+            background: url("${largeImage}");
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -66,6 +67,7 @@ class Hero extends HTMLElement {
               and (min-device-width: 320px)
               and (max-device-width: 640) {
                 #jumbotron {
+                  background: url("${smallImage}");
                   width: 100%;
                   margin-bottom: 0 !important;
                   padding:0 20px;
