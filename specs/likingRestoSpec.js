@@ -71,7 +71,7 @@ describe('Liking a resto', () => {
   });
 
   // 5. Memastikan bahwa resto dengan id 0 tidak bisa ditambahkan ke daftar favorite
-  xit('5) Should not add to the favorite resto when it has no id', async () => {
+  it('5) Should not add to the favorite resto when it has no id', async () => {
     await FavoriteButtonInitiator.init({
       favButtonContainer: document.querySelector('#fav-btn-container'),
       resto: {},
