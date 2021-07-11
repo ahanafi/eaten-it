@@ -1,12 +1,12 @@
-import FavoriteRestoIdb from '../data/favorite-resto-idb';
 import {
   createFavoriteButtonTemplate,
   createUnfavoritedButtonTemplate,
 } from '../views/templates/template-creator';
 
 const FavoriteButtonPresenter = {
-  async init({ favButtonContainer, resto }) {
+  async init({ favButtonContainer, favoriteResto, resto }) {
     this.favButtonContainer = favButtonContainer;
+    this.favoriteResto = favoriteResto;
     this.resto = resto;
 
     await this.renderButton();
@@ -23,7 +23,7 @@ const FavoriteButtonPresenter = {
   },
 
   async isRestoExist(id) {
-    const resto = await FavoriteRestoIdb.getResto(id);
+    const resto = await this.favoriteResto.getResto(id);
     return !!resto;
   },
 
@@ -32,7 +32,7 @@ const FavoriteButtonPresenter = {
 
     const favButton = document.querySelector('#favoriteButton');
     favButton.addEventListener('click', async () => {
-      await FavoriteRestoIdb.putResto(this.resto);
+      await this.favoriteResto.putResto(this.resto);
       this.renderButton();
     });
   },
@@ -42,7 +42,7 @@ const FavoriteButtonPresenter = {
 
     const favButton = document.querySelector('#favoriteButton');
     favButton.addEventListener('click', async () => {
-      await FavoriteRestoIdb.deleteResto(this.resto.id);
+      await this.favoriteResto.deleteResto(this.resto.id);
       this.renderButton();
     });
   },

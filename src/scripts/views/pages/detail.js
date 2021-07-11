@@ -1,4 +1,5 @@
 import RestoDbSource from '../../data/restodb-source';
+import FavoriteRestoIdb from '../../data/favorite-resto-idb';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import { createRestoDetailTemplate } from '../templates/template-creator';
@@ -130,6 +131,7 @@ const Detail = {
 
     FavoriteButtonPresenter.init({
       favButtonContainer: document.querySelector('#fav-btn-container'),
+      favoriteResto: FavoriteRestoIdb,
       resto: {
         id: resto.id,
         name: resto.name,
