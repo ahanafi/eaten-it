@@ -1,5 +1,7 @@
 import CONFIG from '../../globals/config';
 import IMAGE_TYPE from '../../globals/image-type';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) => `
     <style>
@@ -119,7 +121,7 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
 const createRestoItemTemplate = (resto) => `
   <article class='resto-item'>
     <div class='resto-heading'>
-      <img class='resto-img' src='${CONFIG.BASE_IMAGE_URL + IMAGE_TYPE.SMALL + resto.pictureId}' alt='${resto.name}' />
+      <img class='resto-img lazyload' data-src='${CONFIG.BASE_IMAGE_URL + IMAGE_TYPE.SMALL + resto.pictureId}' alt='${resto.name}' />
     </div>
     <div class='resto-content'>
       <a href='#/detail/${resto.id}' class='resto-name'><h1>${resto.name}</h1></a>
