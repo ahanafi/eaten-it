@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 Feature('Liking resto');
 
 Before(({ I }) => {
@@ -9,16 +11,22 @@ Scenario('show empty favorite resto', ({ I }) => {
   I.see("Oops, looks like you haven't added the restaurant to your favorite restaurants", '.empty-resto-text');
 });
 
-Scenario('Liking Resto', ({ I }) => {
+Scenario('Liking Resto', async ({ I }) => {
   I.amOnPage('/');
   pause();
 
   I.seeElement('.resto-content a.resto-name');
-  I.click(locate('.resto-content a.resto-name').first());
+
+  const firstResto = locate('.resto-content a.resto-name h1').first();
+  const firstRestoName = await I.grabTextFrom(firstResto);
+  I.click(firstResto);
 
   I.seeElement('#favoriteButton');
   I.click('#favoriteButton');
 
   I.amOnPage('/#/favorite');
   I.seeElement('.resto-item');
+
+  const favoritedRestoName = await I.grabTextFrom('.resto-content a.resto-name h1');
+  assert.strictEqual(firstRestoName, favoritedRestoName);
 });
