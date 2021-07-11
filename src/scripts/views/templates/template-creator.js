@@ -143,7 +143,7 @@ const createUnfavoritedButtonTemplate = () => `
 `;
 
 const emptyFavoriteResto = () => `
-<h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant <br> to your favorite restaurants list</h2>
+<h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant to your favorite restaurants</h2>
 `;
 
 export {
