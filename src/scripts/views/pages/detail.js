@@ -107,7 +107,7 @@ const Detail = {
           const insertReview = await RestoDbSource.insertReview(review);
           if (insertReview !== null) {
             alert('Your review`s successfully inserted!');
-  
+
             const reviews = document.querySelector('#reviews');
             const lastReview = insertReview[insertReview.length - 1];
             reviews.innerHTML += `
@@ -118,7 +118,7 @@ const Detail = {
                 <p class='review-text'>${lastReview.review}</p>
               </div>
             `;
-  
+
             reviewerName.value = '';
             reviewText.value = '';
           } else {
