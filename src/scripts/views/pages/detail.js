@@ -1,6 +1,6 @@
 import RestoDbSource from '../../data/restodb-source';
 import UrlParser from '../../routes/url-parser';
-import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import { createRestoDetailTemplate } from '../templates/template-creator';
 import { ucWords } from '../../utils/custom-herlper';
 
@@ -128,7 +128,7 @@ const Detail = {
       }
     });
 
-    FavoriteButtonInitiator.init({
+    FavoriteButtonPresenter.init({
       favButtonContainer: document.querySelector('#fav-btn-container'),
       resto: {
         id: resto.id,

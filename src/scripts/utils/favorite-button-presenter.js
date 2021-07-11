@@ -1,10 +1,10 @@
 import FavoriteRestoIdb from '../data/favorite-resto-idb';
 import {
   createFavoriteButtonTemplate,
-  createFavoritedButtonTemplate,
+  createUnfavoritedButtonTemplate,
 } from '../views/templates/template-creator';
 
-const FavoriteButtonInitiator = {
+const FavoriteButtonPresenter = {
   async init({ favButtonContainer, resto }) {
     this.favButtonContainer = favButtonContainer;
     this.resto = resto;
@@ -38,7 +38,7 @@ const FavoriteButtonInitiator = {
   },
 
   renderLiked() {
-    this.favButtonContainer.innerHTML = createFavoritedButtonTemplate();
+    this.favButtonContainer.innerHTML = createUnfavoritedButtonTemplate();
 
     const favButton = document.querySelector('#favoriteButton');
     favButton.addEventListener('click', async () => {
@@ -48,4 +48,4 @@ const FavoriteButtonInitiator = {
   },
 };
 
-export default FavoriteButtonInitiator;
+export default FavoriteButtonPresenter;

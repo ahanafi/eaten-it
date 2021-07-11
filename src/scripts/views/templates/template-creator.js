@@ -136,7 +136,7 @@ const createFavoriteButtonTemplate = () => `
   </button>
 `;
 
-const createFavoritedButtonTemplate = () => `
+const createUnfavoritedButtonTemplate = () => `
   <button aria-label="unlike this resto" id="favoriteButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
@@ -150,6 +150,6 @@ export {
   createRestoItemTemplate,
   createRestoDetailTemplate,
   createFavoriteButtonTemplate,
-  createFavoritedButtonTemplate,
+  createUnfavoritedButtonTemplate,
   emptyFavoriteResto,
 };

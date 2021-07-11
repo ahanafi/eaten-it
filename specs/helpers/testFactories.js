@@ -1,2 +1,11 @@
-// import FavoriteButtonInitiator from '../src/scripts/utils/favorite-button-initiator';
-// import FavoriteRestoIdb from '../src/scripts/data/favorite-resto-idb';
+import FavoriteButtonPresenter from '../../src/scripts/utils/favorite-button-presenter';
+// import FavoriteRestoIdb from '../../src/scripts/data/favorite-resto-idb';
+
+const createFavoriteButtonPresenterWithResto = async (resto) => {
+  await FavoriteButtonPresenter.init({
+    favButtonContainer: document.querySelector('#fav-btn-container'),
+    resto,
+  });
+};
+
+export { createFavoriteButtonPresenterWithResto };
