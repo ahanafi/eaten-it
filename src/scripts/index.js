@@ -1,38 +1,22 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/base.css';
 import '../styles/main.css';
-import '../styles/navbar.css';
 import '../styles/content.css';
 import '../styles/detail.css';
 
+import './components/app-bar';
+import './components/footer-bar';
+
 import App from './views/app';
 import serviceWorkerRegister from './utils/service-worker-register';
-// import appBar from './components/app-bar';
 
-const navbar = document.getElementById('navbar');
-const navbarToggle = navbar.querySelector('.navbar-toggle');
-
-function openMobileNavbar() {
-  navbar.classList.add('opened');
-  navbarToggle.setAttribute('aria-label', 'Close navigation menu.');
-}
-
-function closeMobileNavbar() {
-  navbar.classList.remove('opened');
-  navbarToggle.setAttribute('aria-label', 'Open navigation menu.');
-}
-
-navbarToggle.addEventListener('click', () => {
-  if (navbar.classList.contains('opened')) {
-    closeMobileNavbar();
-  } else {
-    openMobileNavbar();
-  }
-});
+const appBar = document.querySelector('app-bar').shadowRoot;
+const navbarToggle = appBar.querySelector('#navbar-toggle');
+const navbarMenu = appBar.querySelector('#navbar-menu');
 
 const app = new App({
-  button: document.querySelector('.navbar-toggle'),
-  drawer: document.querySelector('.navbar-menu'),
+  button: navbarToggle,
+  drawer: navbarMenu,
   content: document.querySelector('#main-content'),
 });
 

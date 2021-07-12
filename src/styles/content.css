@@ -72,19 +72,6 @@
 	font-size:1.1rem;
 }
 
-footer{
-  width: 100%;
-  background-color: var(--primary-blue);
-  padding:30px;
-  box-sizing: border-box;
-}
-
-footer > p {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-}
-
 .skip-link {
   position: absolute;
   top: -50px;
