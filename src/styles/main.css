@@ -18,7 +18,7 @@ body {
 h1 {
   margin: 0 auto;
   font-size: 2rem;
-  padding: 40px 0;
+  padding-bottom: 40px;
   color: var(--primary-blue);
   text-align: center;
 }
@@ -56,7 +56,7 @@ section {
 /* Food list */
 #our-foods{
     width: 100%;
-    padding-top: 60px;
+    padding-top:30px;
 }
 
 #our-foods h2{
@@ -69,25 +69,29 @@ section {
 /* Media Query */
 @media only screen and (max-width: 980px) {
   .content {
-    width: 80%;
+    width: 100%;
   }
   #our-foods{
-    width: 80%;
+    width: 95%;
   }
 }
 
 @media only screen and (max-width: 568px) {
+  .content {
+    margin-bottom: 0;
+  }
   h1 {
     padding: 25px 0;
   }
   h1 span {
     display: block;
+    font-size: 1.6rem;
   }
   #main-content{
     margin-top:50px;
   }
   #our-foods{
-    width: 100%;
+    width: 90%;
     padding-top: 0;
 }
 }

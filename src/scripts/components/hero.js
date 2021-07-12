@@ -16,6 +16,9 @@ class Hero extends HTMLElement {
   render() {
     this.shadowDOM.innerHTML = `
         <style>
+          #main-content{
+            margin:0 !important;
+          }
           section {
             width: 100%;
             max-width: 1200px;
@@ -38,19 +41,20 @@ class Hero extends HTMLElement {
             color: #fff;
             font-weight: bolder;
             font-size: 3rem;
+            text-shadow:2px 2px 2px var(--primary-blue);
           }
           
           #jumbotron p {
-            background: rgba(255, 255, 155, 0.35);
+            background: rgba(255, 255, 155, 0.55);
             margin: 0 auto;
             width: 85%;
             padding: 1.8rem;
             text-align: center;
             font-size: 1.4rem;
-            color: #fff;
+            color: var(--primary-blue);
             line-height: 1.2em;
-            color: #fff;
-            font-weight: 600;
+            font-weight: 700;
+            margin-bottom:30px;
           }
           
           .btn-in-hero {
@@ -59,6 +63,7 @@ class Hero extends HTMLElement {
             padding: 10px 15px;
             border-radius: 2.5px;
             color: var(--primary-blue);
+            font-size:1.2rem;
             font-weight: bold;
           }
           
@@ -71,11 +76,14 @@ class Hero extends HTMLElement {
           @media screen
               and (min-device-width: 320px)
               and (max-device-width: 640px) {
+                #main-content{
+                  margin:0 !important;
+                }
                 #jumbotron {
                   background: url("${smallImage}") !important;
                   width: 100%;
                   margin-bottom: 0 !important;
-                  padding:20px;
+                  padding:20px 0;
                   z-index: 2;
                   box-sizing:border-box;
                 }
@@ -92,13 +100,13 @@ class Hero extends HTMLElement {
                   padding: .5rem;
                   text-align: center;
                   font-size: 1.1rem;
-                  color: #fff;
                   line-height: 1em;
-                  color: #fff;
-                  font-weight: 400;
+                  font-weight:600;
+                  margin-bottom:20px;
                 }
           
                 .btn-in-hero {
+                  margin-top:10px !important;
                   min-height:44px !important;
                   font-size: 18px !important;
                 }
@@ -110,9 +118,8 @@ class Hero extends HTMLElement {
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos facere aut repudiandae, aperiam eaque,
               placeat repellat officiis doloremque adipisci impedit iure autem iste maxime similique reprehenderit eos
               nemo? Aperiam, culpa!
-              <br><br>
-              <a href="#our-foods" class="btn-in-hero">Check Now!</a>
-          </p>
+            </p>
+            <a href="#our-foods" class="btn-in-hero">Check Now!</a>
         </section>`;
   }
 }

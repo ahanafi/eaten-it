@@ -4,6 +4,18 @@
   }
 }
 
+@media screen and (max-device-width: 980px) {
+  #list-resto {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-device-width: 568px) {
+  #list-resto {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 #list-resto {
   width: 100%;
   display: grid;

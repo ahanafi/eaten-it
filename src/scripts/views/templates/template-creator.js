@@ -19,45 +19,31 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
     <div id="resto-info">
       <div class="resto-image"></div>
       <div class="resto-full-info">
+        <h3>Information</h3>
         <table cellpadding='10' cellspacing='0'>
           <tr>
-            <td>
-              <h3>Information</h3>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>
-              <i class='fa fa-building'></i>
-              City
-            </td>
+            <td><i class='fa fa-building'></i></td>
+            <td>City</td>
             <td>:</td>
             <td>${resto.city}</td>
           </tr>
           <tr>
-            <td>
-              <i class='fa fa-map-marker'></i>
-              Address
-            </td>
+            <td><i class='fa fa-map-marker'></i></td>
+            <td>Address</td>
             <td>:</td>
             <td>
               <a href='https://www.google.com/maps/search/?api=1&query=${resto.address}'>${resto.address}</a>
             </td>
           </tr>
           <tr>
-            <td>
-              <i class='fa fa-star'></i>
-              Rating
-            </td>
+            <td><i class='fa fa-star'></i></td>
+            <td>Rating</td>
             <td>:</td>
             <td>${resto.rating}</td>
           </tr>
           <tr>
-            <td>
-              <i class='fa fa-tags'></i>
-              Categories
-            </td>
+            <td><i class='fa fa-tags'></i></td>
+            <td>Categories</td>
             <td>:</td>
             <td>${categories}</td>
           </tr>
@@ -93,7 +79,7 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
       <div id="container-review">
         <div id="reviews">${reviews}</div>
         <div id="review-form">
-        <h4>Want to add review?</h4>
+          <h4>Want to add review?</h4>
           <table cellspacing='0' cellpadding='0'>
             <tr>
               <td>Name <br>
@@ -112,7 +98,7 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
         </div>
       </div>
     </div>
-  `;
+`;
 
 const createRestoItemTemplate = (resto) => `
   <article class='resto-item'>
@@ -126,7 +112,8 @@ const createRestoItemTemplate = (resto) => `
         <p class='resto-description'>${resto.description}</p>
     </div>
     <div class='resto-footer'></div>
-  </article>`;
+  </article>
+`;
 
 const createFavoriteButtonTemplate = () => `
   <button aria-label="like this resto" id="favoriteButton" class="like">

@@ -21,6 +21,21 @@ import _drink4 from '../../../public/images/drinks/4.jpg';
 const Detail = {
   async render() {
     return `
+    <style>
+      @media only screen
+        and (max-device-width: 1200px) {
+        #main-content{
+          margin: 0 2%;
+        }
+      }
+      @media screen
+        and (min-device-width: 320px)
+        and (max-device-width: 640px) {
+        #main-content{
+          margin: 0;
+        }
+      }
+    </style>
     <section id="detail-resto" class="content"></section>
     <div id="fav-btn-container"></div>
     `;
