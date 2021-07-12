@@ -2,7 +2,7 @@ import RestoDbSource from '../../data/restodb-source';
 import FavoriteRestoIdb from '../../data/favorite-resto-idb';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
-import { createRestoDetailTemplate } from '../templates/template-creator';
+import { createRestoDetailTemplate, createReviewItemTemplate } from '../templates/template-creator';
 import { ucWords } from '../../utils/custom-herlper';
 
 // Food images
@@ -69,15 +69,7 @@ const Detail = {
 
     // Reviews
     resto.customerReviews.forEach((review) => {
-      restoReviews += `
-        <div class='review-item'>
-          <h4 class='reviewer'>
-            ${review.name} <span class='review-date'>at ${review.date}  say's </span> :
-          </h4>
-          
-          <p class='review-text'>${review.review}</p>
-        </div>
-      `;
+      restoReviews += createReviewItemTemplate(review);
     });
 
     restoContainer.innerHTML = createRestoDetailTemplate(
@@ -111,14 +103,7 @@ const Detail = {
 
             const reviews = document.querySelector('#reviews');
             const lastReview = insertReview[insertReview.length - 1];
-            reviews.innerHTML += `
-              <div class='review-item'>
-                <h4 class='reviewer'>
-                  ${lastReview.name} <span class='review-date'>at ${lastReview.date}  say's </span> :
-                </h4>
-                <p class='review-text'>${lastReview.review}</p>
-              </div>
-            `;
+            reviews.innerHTML += createReviewItemTemplate(lastReview);
 
             reviewerName.value = '';
             reviewText.value = '';

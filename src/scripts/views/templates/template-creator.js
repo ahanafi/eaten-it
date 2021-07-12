@@ -2,6 +2,7 @@ import CONFIG from '../../globals/config';
 import IMAGE_TYPE from '../../globals/image-type';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import { ucWords } from '../../utils/custom-herlper';
 
 const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) => `
     <style>
@@ -143,10 +144,21 @@ const emptyFavoriteResto = () => `
 <h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant to your favorite restaurants</h2>
 `;
 
+const createReviewItemTemplate = (review) => `
+  <div class='review-item'>
+    <div class='reviewer'>
+      <h4 class='reviewer-name'>${ucWords(review.name)}</h4>
+      <span class='review-date'>at ${review.date} say's :</span>   
+    </div>
+    <p class='review-text'>${review.review}</p>
+  </div>
+`;
+
 export {
   createRestoItemTemplate,
   createRestoDetailTemplate,
   createFavoriteButtonTemplate,
   createUnfavoritedButtonTemplate,
   emptyFavoriteResto,
+  createReviewItemTemplate,
 };

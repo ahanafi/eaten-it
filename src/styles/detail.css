@@ -162,17 +162,24 @@
   margin-bottom: 5px;
   border-bottom: 1px solid #333;
   font-size: 1.4rem !important;
+  display: inline-flex;
+  width: 100%;
 }
 
 .review-date{
   font-weight: normal !important;
-  font-size: 1.2rem;
 }
 
 .review-item > .review-text{
   font-size: 20px !important;
   color: #333;
   font-weight: 600;
+}
+
+h4.reviewer-name{
+  width: auto !important;
+  display: inline-flex;
+  padding-right: 5px;
 }
 
 #review-form{

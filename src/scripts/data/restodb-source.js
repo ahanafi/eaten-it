@@ -21,18 +21,20 @@ class RestoDbSource {
   }
 
   static async insertReview(data = {}) {
-    const response = await fetch(API_ENDPOINT.INSERT_REVIEW, {
-      method: 'POST',
-      headers: {
-        'X-Auth-Token': CONFIG.KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+    if (Object.keys(data).length !== 0) {
+      const response = await fetch(API_ENDPOINT.INSERT_REVIEW, {
+        method: 'POST',
+        headers: {
+          'X-Auth-Token': CONFIG.KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-    const responseJson = await response.json();
-    if (!responseJson.error) {
-      return responseJson.customerReviews;
+      const responseJson = await response.json();
+      if (!responseJson.error) {
+        return responseJson.customerReviews;
+      }
     }
 
     return false;
