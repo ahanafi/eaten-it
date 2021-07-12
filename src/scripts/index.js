@@ -2,7 +2,6 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/base.css';
 import '../styles/main.css';
 import '../styles/content.css';
-import '../styles/detail.css';
 
 import './components/app-bar';
 import './components/footer-bar';

@@ -7,6 +7,11 @@ import OopsImage from '../../../public/images/oops.svg';
 const Favorite = {
   async render() {
     return `
+    <style>
+      #our-foods{
+        margin-top:60px !important;
+      }
+    </style>
     <section id="our-foods" class="content">
       <h1>
         Your Favorite Resto <br>

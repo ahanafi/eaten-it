@@ -18,6 +18,8 @@ import _drink2 from '../../../public/images/drinks/2.jpg';
 import _drink3 from '../../../public/images/drinks/3.jpg';
 import _drink4 from '../../../public/images/drinks/4.jpg';
 
+import '../../../styles/detail.css';
+
 const Detail = {
   async render() {
     return `
