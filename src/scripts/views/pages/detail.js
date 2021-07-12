@@ -18,7 +18,7 @@ import _drink2 from '../../../public/images/drinks/2.jpg';
 import _drink3 from '../../../public/images/drinks/3.jpg';
 import _drink4 from '../../../public/images/drinks/4.jpg';
 
-import '../../../styles/detail.css';
+import '../../../styles/detail.min.css';
 
 const Detail = {
   async render() {
@@ -32,7 +32,7 @@ const Detail = {
       }
       @media screen
         and (min-device-width: 320px)
-        and (max-device-width: 640px) {
+        and (max-device-width: 480px) {
         #main-content{
           margin: 0;
         }

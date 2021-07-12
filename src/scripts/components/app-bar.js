@@ -61,11 +61,6 @@ class AppBar extends HTMLElement {
           width: 100%;
         }
 
-        .navbar-links > li.navbar-item.active > a{
-          color: #fff;
-          background: var(--primary-blue);
-        }
-
         .home-link,
         .navbar-link {
           color: var(--primary-blue);
@@ -245,7 +240,7 @@ class AppBar extends HTMLElement {
             </button>
             <div id="navbar-menu">
                 <ul class="navbar-links">
-                  <li class="navbar-item active"><a class="navbar-link" href="#/home">Home</a></li>
+                  <li class="navbar-item"><a class="navbar-link" href="#/home">Home</a></li>
                   <li class="navbar-item"><a class="navbar-link" href="#/favorite">Favorite</a></li>
                   <li class="navbar-item"><a class="navbar-link" rel="noreferrer" href="https://s.id/ahanafi" target="_blank">About</a></li>
                 </ul>
