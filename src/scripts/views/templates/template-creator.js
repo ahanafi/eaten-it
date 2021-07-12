@@ -2,7 +2,7 @@ import CONFIG from '../../globals/config';
 import IMAGE_TYPE from '../../globals/image-type';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-import { ucWords } from '../../utils/custom-herlper';
+import { ucWords } from '../../utils/custom-helper';
 
 const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) => `
     <style>

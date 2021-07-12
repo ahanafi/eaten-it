@@ -4,6 +4,7 @@ import '../styles/responsive.min.css';
 
 import './components/app-bar';
 import './components/footer-bar';
+import { alertNetwork } from './utils/custom-helper';
 
 import App from './views/app';
 import serviceWorkerRegister from './utils/service-worker-register';
@@ -18,11 +19,14 @@ const app = new App({
   content: document.querySelector('#main-content'),
 });
 
+window.addEventListener('offline', alertNetwork());
+
 window.addEventListener('hashchange', () => {
   app.renderPage();
 });
 
 window.addEventListener('load', () => {
   app.renderPage();
+  alertNetwork();
   serviceWorkerRegister();
 });

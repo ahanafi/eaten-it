@@ -3,7 +3,7 @@ import FavoriteRestoIdb from '../../data/favorite-resto-idb';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import { createRestoDetailTemplate, createReviewItemTemplate } from '../templates/template-creator';
-import { ucWords } from '../../utils/custom-herlper';
+import { ucWords, showAlert } from '../../utils/custom-helper';
 
 // Food images
 import _food1 from '../../../public/images/foods/1.jpg';
@@ -101,13 +101,14 @@ const Detail = {
     btnSubmitReview.addEventListener('click', async () => {
       // Check online status first
       if (!navigator.onLine) {
-        alert('Please, check your internet connection first before add the review!');
+        showAlert('Please, check your internet connection first before add the review!', 'error');
       } else {
         const reviewerName = document.querySelector('#reviewer-name');
         const reviewText = document.querySelector('#reviewer-text');
 
-        if (reviewerName === '' || reviewText === '') {
-          alert('Did you forget to fill out the form? Pls. try again!');
+        if (reviewerName.value === '' || reviewText.value === '') {
+          showAlert('Did you forget to fill out the form? Please try again.', 'warning');
+          // alert('Did you forget to fill out the form? Pls. try again!');
         } else {
           const review = {
             id: resto.id,
@@ -116,7 +117,8 @@ const Detail = {
           };
           const insertReview = await RestoDbSource.insertReview(review);
           if (insertReview !== null) {
-            alert('Your review`s successfully inserted!');
+            // alert('Your review`s successfully inserted!');
+            showAlert('Your review has been successfully inserted', 'success');
 
             const reviews = document.querySelector('#reviews');
             const lastReview = insertReview[insertReview.length - 1];
@@ -125,7 +127,8 @@ const Detail = {
             reviewerName.value = '';
             reviewText.value = '';
           } else {
-            alert('Oops! We can`t save your review at this time. Pls. try again later!');
+            showAlert('We can`t save your review at this time. Please try again later!', 'info');
+            // alert('');
           }
         }
       }
