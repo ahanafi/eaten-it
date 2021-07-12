@@ -93,11 +93,7 @@ const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) =>
         <div id="reviews">${reviews}</div>
         <div id="review-form">
         <h4>Want to add review?</h4>
-          <table>
-            <tr>
-              <td>
-              </td>
-            </tr>
+          <table cellspacing='0' cellpadding='0'>
             <tr>
               <td>Name <br>
               <input type='text' id='reviewer-name' autocomplete='off' /></td>

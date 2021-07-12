@@ -75,14 +75,15 @@ class Hero extends HTMLElement {
                   background: url("${smallImage}") !important;
                   width: 100%;
                   margin-bottom: 0 !important;
-                  padding:0 20px;
+                  padding:20px;
                   z-index: 2;
+                  box-sizing:border-box;
                 }
                 
                 #jumbotron h1 {
                   color: #fff;
                   font-weight: bolder;
-                  font-size: 2.4rem;
+                  font-size: 1.8rem;
                   margin-top: 0;
                   margin-bottom: 0;
                 }
@@ -98,7 +99,8 @@ class Hero extends HTMLElement {
                 }
           
                 .btn-in-hero {
-                  font-size: 16px !important;
+                  min-height:44px !important;
+                  font-size: 18px !important;
                 }
               }
         </style>
