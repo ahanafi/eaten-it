@@ -199,7 +199,7 @@
 
 #review-form input,
 #review-form textarea {
-  border:3.5px solid var(--primary-blue);
+  border:3px solid var(--primary-blue);
   padding:7.5px 15px;
   font-size: 18px;
   width: 100%;
@@ -268,6 +268,9 @@
 @media only screen and (max-width: 480px) {
   section {
     max-width: 90%;
+  }
+  #submit-review{
+    width: 100%;
   }
 }
 

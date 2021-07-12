@@ -68,6 +68,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/images/heros/hero-bg.jpg'], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+          },
         },
       ],
     }),
