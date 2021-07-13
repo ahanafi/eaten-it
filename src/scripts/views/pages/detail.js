@@ -8,6 +8,7 @@ import {
   noInternetConnectionTemplate,
 } from '../templates/template-creator';
 import { ucWords, showAlert, alertNetwork } from '../../utils/custom-helper';
+import noInternetImage from '../../../public/images/no-wifi.svg';
 
 // Food images
 import _food1 from '../../../public/images/foods/1.jpg';
@@ -42,7 +43,8 @@ const Detail = {
         }
       }
     </style>
-    <section id="detail-resto" class="content"></section>
+    <section id="detail-resto" class="content">
+    </section>
     <div id="fav-btn-container"></div>
     `;
   },
@@ -51,7 +53,7 @@ const Detail = {
     const restoContainer = document.querySelector('#detail-resto');
     if (!navigator.onLine) {
       alertNetwork();
-      restoContainer.innerHTML += noInternetConnectionTemplate();
+      restoContainer.innerHTML += noInternetConnectionTemplate(noInternetImage);
     } else {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const resto = await RestoDbSource.getDetailResto(url.id);

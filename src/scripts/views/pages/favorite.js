@@ -17,11 +17,7 @@ const Favorite = {
         Your Favorite Resto <br>
         <span>List of restaurants liked by you</span>
       </h1>
-
       <div id="list-resto"></div>
-      <div id="empty-resto" class="hidden">
-        <img src="${OopsImage}" alt="Oops Image" /> <br>
-      </div>
     </section>
     `;
   },
@@ -37,9 +33,8 @@ const Favorite = {
         }
       });
     } else {
-      const emptyRestoContainer = document.querySelector('#empty-resto');
-      emptyRestoContainer.classList.remove('hidden');
-      emptyRestoContainer.innerHTML += emptyFavoriteResto();
+      const ourFoods = document.querySelector('#our-foods');
+      ourFoods.innerHTML += emptyFavoriteResto(OopsImage);
     }
   },
 };

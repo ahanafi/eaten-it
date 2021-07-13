@@ -3,7 +3,6 @@ import IMAGE_TYPE from '../../globals/image-type';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import { ucWords } from '../../utils/custom-helper';
-import noInternetImage from '../../../public/images/no-wifi.svg';
 
 const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) => `
     <style>
@@ -128,8 +127,19 @@ const createUnfavoritedButtonTemplate = () => `
   </button>
 `;
 
-const emptyFavoriteResto = () => `
-  <h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant to your favorite restaurants</h2>
+const emptyFavoriteResto = (image) => `
+  <style>
+    @media only screen
+      and (max-device-width: 568px) {
+      h2.empty-resto-text{
+        font-size:18px !important;
+      }
+    }
+  </style>
+  <div id="empty-resto">
+    <img src="${image}" alt="Oops Image" /> <br>
+    <h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant to your favorite restaurants</h2>
+  </div>
 `;
 
 const createReviewItemTemplate = (review) => `
@@ -142,13 +152,13 @@ const createReviewItemTemplate = (review) => `
   </div>
 `;
 
-const noInternetConnectionTemplate = () => `
+const noInternetConnectionTemplate = (image) => `
   <div class='empty-network'>
     <h1>
       Whoops...! <br>
       <span>looks like your device is not connected to the internet</span>
     </h1>
-    <img src="${noInternetImage}" alt="No Internet Image" /> <br>
+    <img src="${image}" alt="No Internet Image" /> <br>
     <h2 class='empty-network-suggestion'>Please check your connection.</h2>
   </div>
 `;
