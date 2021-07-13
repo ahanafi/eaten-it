@@ -19,8 +19,8 @@ Scenario('Adding Review', async ({ I }) => {
 
   I.seeElement('.resto-content a.resto-name');
 
-  const firstResto = locate('.resto-content a.resto-name h1').first();
-  I.click(firstResto);
+  const lastResto = locate('.resto-content a.resto-name h1').last();
+  I.click(lastResto);
 
   I.seeElement('#review-form');
   I.seeElement('#reviewer-name');
@@ -35,7 +35,9 @@ Scenario('Adding Review', async ({ I }) => {
   I.fillField('#reviewer-text', reviewText);
   await I.click('#submit-review');
 
-  I.acceptPopup();
+  const confirmButton = '.swal2-confirm';
+  I.seeElement(confirmButton);
+  I.click(confirmButton);
 
   I.seeElement('#reviews');
   const reviewItem = '#reviews .review-item';

@@ -113,7 +113,7 @@ const Detail = {
         } else {
           const reviewerName = document.querySelector('#reviewer-name');
           const reviewText = document.querySelector('#reviewer-text');
-  
+
           if (reviewerName.value === '' || reviewText.value === '') {
             showAlert('Did you forget to fill out the form? Please try again.', 'warning');
           } else {
@@ -125,11 +125,11 @@ const Detail = {
             const insertReview = await RestoDbSource.insertReview(review);
             if (insertReview !== null) {
               showAlert('Your review has been successfully inserted', 'success');
-  
+
               const reviews = document.querySelector('#reviews');
               const lastReview = insertReview[insertReview.length - 1];
               reviews.innerHTML += createReviewItemTemplate(lastReview);
-  
+
               reviewerName.value = '';
               reviewText.value = '';
             } else {

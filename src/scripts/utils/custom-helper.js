@@ -22,4 +22,6 @@ const loader = () => {
   }, 500);
 };
 
-export { ucWords, alertNetwork, showAlert, loader };
+export {
+  ucWords, alertNetwork, showAlert, loader,
+};
