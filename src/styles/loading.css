@@ -1,0 +1,11 @@
+#loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #06406abf;
+}
+
+#main-content{
+  display: none;
+}

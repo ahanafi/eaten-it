@@ -3,7 +3,9 @@ import FavoriteRestoIdb from '../../data/favorite-resto-idb';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import { createRestoDetailTemplate, createReviewItemTemplate } from '../templates/template-creator';
-import { ucWords, showAlert } from '../../utils/custom-helper';
+import {
+  ucWords, showAlert, alertNetwork, loader,
+} from '../../utils/custom-helper';
 
 // Food images
 import _food1 from '../../../public/images/foods/1.jpg';
@@ -44,6 +46,7 @@ const Detail = {
   },
 
   async afterRender() {
+    alertNetwork();
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const resto = await RestoDbSource.getDetailResto(url.id);
     const restoContainer = document.querySelector('#detail-resto');
@@ -89,6 +92,8 @@ const Detail = {
       restoReviews += createReviewItemTemplate(review);
     });
 
+    loader();
+
     restoContainer.innerHTML = createRestoDetailTemplate(
       resto,
       restoCategory,
@@ -101,14 +106,13 @@ const Detail = {
     btnSubmitReview.addEventListener('click', async () => {
       // Check online status first
       if (!navigator.onLine) {
-        showAlert('Please, check your internet connection first before add the review!', 'error');
+        alertNetwork();
       } else {
         const reviewerName = document.querySelector('#reviewer-name');
         const reviewText = document.querySelector('#reviewer-text');
 
         if (reviewerName.value === '' || reviewText.value === '') {
           showAlert('Did you forget to fill out the form? Please try again.', 'warning');
-          // alert('Did you forget to fill out the form? Pls. try again!');
         } else {
           const review = {
             id: resto.id,
@@ -117,7 +121,6 @@ const Detail = {
           };
           const insertReview = await RestoDbSource.insertReview(review);
           if (insertReview !== null) {
-            // alert('Your review`s successfully inserted!');
             showAlert('Your review has been successfully inserted', 'success');
 
             const reviews = document.querySelector('#reviews');
@@ -128,7 +131,6 @@ const Detail = {
             reviewText.value = '';
           } else {
             showAlert('We can`t save your review at this time. Please try again later!', 'info');
-            // alert('');
           }
         }
       }

@@ -14,4 +14,12 @@ const alertNetwork = () => {
   }
 };
 
-export { ucWords, alertNetwork, showAlert };
+const loader = () => {
+  setTimeout(() => {
+    document.querySelector('#loader').style.display = 'none';
+    document.querySelector('loading-bar').style.display = 'none';
+    document.querySelector('#main-content').style.display = 'block';
+  }, 500);
+};
+
+export { ucWords, alertNetwork, showAlert, loader };

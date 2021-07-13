@@ -1,10 +1,12 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.min.css';
 import '../styles/responsive.min.css';
+import '../styles/loading.css';
 
 import './components/app-bar';
 import './components/footer-bar';
-import { alertNetwork } from './utils/custom-helper';
+import './components/loading';
+import { alertNetwork, loader } from './utils/custom-helper';
 
 import App from './views/app';
 import serviceWorkerRegister from './utils/service-worker-register';
@@ -22,10 +24,12 @@ const app = new App({
 window.addEventListener('offline', alertNetwork());
 
 window.addEventListener('hashchange', () => {
+  loader();
   app.renderPage();
 });
 
 window.addEventListener('load', () => {
+  loader();
   app.renderPage();
   alertNetwork();
   serviceWorkerRegister();
