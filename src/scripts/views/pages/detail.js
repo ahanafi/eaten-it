@@ -48,9 +48,9 @@ const Detail = {
   },
 
   async afterRender() {
-    alertNetwork();
     const restoContainer = document.querySelector('#detail-resto');
-    if (navigator.onLine) {
+    if (!navigator.onLine) {
+      alertNetwork();
       restoContainer.innerHTML += noInternetConnectionTemplate();
     } else {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
