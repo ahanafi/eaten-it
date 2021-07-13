@@ -3,6 +3,7 @@ import IMAGE_TYPE from '../../globals/image-type';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import { ucWords } from '../../utils/custom-helper';
+import noInternetImage from '../../../public/images/no-wifi.svg';
 
 const createRestoDetailTemplate = (resto, categories, foods, drinks, reviews) => `
     <style>
@@ -128,7 +129,7 @@ const createUnfavoritedButtonTemplate = () => `
 `;
 
 const emptyFavoriteResto = () => `
-<h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant to your favorite restaurants</h2>
+  <h2 class='empty-resto-text'>Oops, looks like you haven't added the restaurant to your favorite restaurants</h2>
 `;
 
 const createReviewItemTemplate = (review) => `
@@ -141,6 +142,17 @@ const createReviewItemTemplate = (review) => `
   </div>
 `;
 
+const noInternetConnectionTemplate = () => `
+  <div class='empty-network'>
+    <h1>
+      Whoops...! <br>
+      <span>looks like your device is not connected to the internet</span>
+    </h1>
+    <img src="${noInternetImage}" alt="No Internet Image" /> <br>
+    <h2 class='empty-network-suggestion'>Please check your connection.</h2>
+  </div>
+`;
+
 export {
   createRestoItemTemplate,
   createRestoDetailTemplate,
@@ -148,4 +160,5 @@ export {
   createUnfavoritedButtonTemplate,
   emptyFavoriteResto,
   createReviewItemTemplate,
+  noInternetConnectionTemplate,
 };

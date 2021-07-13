@@ -21,7 +21,7 @@ const app = new App({
   content: document.querySelector('#main-content'),
 });
 
-window.addEventListener('offline', alertNetwork());
+window.addEventListener('offline', () => alertNetwork);
 
 window.addEventListener('hashchange', () => {
   loader();

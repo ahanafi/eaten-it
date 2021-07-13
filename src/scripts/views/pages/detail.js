@@ -2,10 +2,12 @@ import RestoDbSource from '../../data/restodb-source';
 import FavoriteRestoIdb from '../../data/favorite-resto-idb';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
-import { createRestoDetailTemplate, createReviewItemTemplate } from '../templates/template-creator';
 import {
-  ucWords, showAlert, alertNetwork, loader,
-} from '../../utils/custom-helper';
+  createRestoDetailTemplate,
+  createReviewItemTemplate,
+  noInternetConnectionTemplate,
+} from '../templates/template-creator';
+import { ucWords, showAlert, alertNetwork } from '../../utils/custom-helper';
 
 // Food images
 import _food1 from '../../../public/images/foods/1.jpg';
@@ -47,107 +49,109 @@ const Detail = {
 
   async afterRender() {
     alertNetwork();
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const resto = await RestoDbSource.getDetailResto(url.id);
     const restoContainer = document.querySelector('#detail-resto');
+    if (navigator.onLine) {
+      restoContainer.innerHTML += noInternetConnectionTemplate();
+    } else {
+      const url = UrlParser.parseActiveUrlWithoutCombiner();
+      const resto = await RestoDbSource.getDetailResto(url.id);
 
-    let restoCategory = '';
-    let restoFoods = '<ul class="food-lists">';
-    let restoDrinks = '<ul class="food-lists">';
-    let restoReviews = '';
+      let restoCategory = '';
+      let restoFoods = '<ul class="food-lists">';
+      let restoDrinks = '<ul class="food-lists">';
+      let restoReviews = '';
 
-    resto.categories.forEach((category) => {
-      restoCategory += `<span class='resto-category'>${category.name}</span>`;
-    });
+      resto.categories.forEach((category) => {
+        restoCategory += `<span class='resto-category'>${category.name}</span>`;
+      });
 
-    const arrFoodImages = [_food1, _food2, _food3, _food4, _food5];
-    const arrDrinkImages = [_drink1, _drink2, _drink3, _drink4];
+      const arrFoodImages = [_food1, _food2, _food3, _food4, _food5];
+      const arrDrinkImages = [_drink1, _drink2, _drink3, _drink4];
 
-    // Foods
-    resto.menus.foods.forEach((food) => {
-      const index = Math.floor((Math.random() * arrFoodImages.length - 1) + 1);
-      const restoImage = arrFoodImages[index];
-      restoFoods += `
-        <li class='food-item'>
-          <img class='food-img' src='${restoImage}' alt='${resto.name}'/>
-          <h4>${ucWords(food.name.toString())}</h4>
-        </li>`;
-    });
-    restoFoods += '</ul>';
+      // Foods
+      resto.menus.foods.forEach((food) => {
+        const index = Math.floor((Math.random() * arrFoodImages.length - 1) + 1);
+        const restoImage = arrFoodImages[index];
+        restoFoods += `
+          <li class='food-item'>
+            <img class='food-img' src='${restoImage}' alt='${resto.name}'/>
+            <h4>${ucWords(food.name.toString())}</h4>
+          </li>`;
+      });
+      restoFoods += '</ul>';
 
-    // Drinks
-    resto.menus.drinks.forEach((drink) => {
-      const index = Math.floor((Math.random() * arrDrinkImages.length - 1) + 1);
-      const drinkImage = arrDrinkImages[index];
-      restoDrinks += `
-        <li class='food-item'>
-          <img class='food-img' src='${drinkImage}' alt='${drink.name}' />
-          <h4>${ucWords(drink.name.toString())}</h4>
-        </li>`;
-    });
-    restoDrinks += '</ul>';
+      // Drinks
+      resto.menus.drinks.forEach((drink) => {
+        const index = Math.floor((Math.random() * arrDrinkImages.length - 1) + 1);
+        const drinkImage = arrDrinkImages[index];
+        restoDrinks += `
+          <li class='food-item'>
+            <img class='food-img' src='${drinkImage}' alt='${drink.name}' />
+            <h4>${ucWords(drink.name.toString())}</h4>
+          </li>`;
+      });
+      restoDrinks += '</ul>';
 
-    // Reviews
-    resto.customerReviews.forEach((review) => {
-      restoReviews += createReviewItemTemplate(review);
-    });
+      // Reviews
+      resto.customerReviews.forEach((review) => {
+        restoReviews += createReviewItemTemplate(review);
+      });
 
-    loader();
+      restoContainer.innerHTML = createRestoDetailTemplate(
+        resto,
+        restoCategory,
+        restoFoods,
+        restoDrinks,
+        restoReviews,
+      );
 
-    restoContainer.innerHTML = createRestoDetailTemplate(
-      resto,
-      restoCategory,
-      restoFoods,
-      restoDrinks,
-      restoReviews,
-    );
-
-    const btnSubmitReview = document.querySelector('#submit-review');
-    btnSubmitReview.addEventListener('click', async () => {
-      // Check online status first
-      if (!navigator.onLine) {
-        alertNetwork();
-      } else {
-        const reviewerName = document.querySelector('#reviewer-name');
-        const reviewText = document.querySelector('#reviewer-text');
-
-        if (reviewerName.value === '' || reviewText.value === '') {
-          showAlert('Did you forget to fill out the form? Please try again.', 'warning');
+      const btnSubmitReview = document.querySelector('#submit-review');
+      btnSubmitReview.addEventListener('click', async () => {
+        // Check online status first
+        if (!navigator.onLine) {
+          alertNetwork();
         } else {
-          const review = {
-            id: resto.id,
-            name: reviewerName.value,
-            review: reviewText.value,
-          };
-          const insertReview = await RestoDbSource.insertReview(review);
-          if (insertReview !== null) {
-            showAlert('Your review has been successfully inserted', 'success');
-
-            const reviews = document.querySelector('#reviews');
-            const lastReview = insertReview[insertReview.length - 1];
-            reviews.innerHTML += createReviewItemTemplate(lastReview);
-
-            reviewerName.value = '';
-            reviewText.value = '';
+          const reviewerName = document.querySelector('#reviewer-name');
+          const reviewText = document.querySelector('#reviewer-text');
+  
+          if (reviewerName.value === '' || reviewText.value === '') {
+            showAlert('Did you forget to fill out the form? Please try again.', 'warning');
           } else {
-            showAlert('We can`t save your review at this time. Please try again later!', 'info');
+            const review = {
+              id: resto.id,
+              name: reviewerName.value,
+              review: reviewText.value,
+            };
+            const insertReview = await RestoDbSource.insertReview(review);
+            if (insertReview !== null) {
+              showAlert('Your review has been successfully inserted', 'success');
+  
+              const reviews = document.querySelector('#reviews');
+              const lastReview = insertReview[insertReview.length - 1];
+              reviews.innerHTML += createReviewItemTemplate(lastReview);
+  
+              reviewerName.value = '';
+              reviewText.value = '';
+            } else {
+              showAlert('We can`t save your review at this time. Please try again later!', 'info');
+            }
           }
         }
-      }
-    });
+      });
 
-    FavoriteButtonPresenter.init({
-      favButtonContainer: document.querySelector('#fav-btn-container'),
-      favoriteResto: FavoriteRestoIdb,
-      resto: {
-        id: resto.id,
-        name: resto.name,
-        description: resto.description,
-        pictureId: resto.pictureId,
-        city: resto.city,
-        rating: resto.rating,
-      },
-    });
+      FavoriteButtonPresenter.init({
+        favButtonContainer: document.querySelector('#fav-btn-container'),
+        favoriteResto: FavoriteRestoIdb,
+        resto: {
+          id: resto.id,
+          name: resto.name,
+          description: resto.description,
+          pictureId: resto.pictureId,
+          city: resto.city,
+          rating: resto.rating,
+        },
+      });
+    }
   },
 };
 
