@@ -11,21 +11,18 @@ describe('Liking a resto', () => {
     addFavoriteButtonContainer();
   });
 
-  // 1. Memastikan button favorite tampil ketika resto belum ditambahkan ke daftar favorite
   it('1) Should show the favorite button when the resto hasn`t been favorited before', async () => {
     await TestFactories.createFavoriteButtonPresenterWithResto({ id: 1 });
 
     expect(document.querySelector('[aria-label="like this resto"]')).toBeTruthy();
   });
 
-  // 2. Memastikan button un-favorite tidak tampil ketika resto belum ditambahkan ke daftar favorite
   it('2) Should not show the un-favorite button when the resto hasn`t been favorited before', async () => {
     await TestFactories.createFavoriteButtonPresenterWithResto({ id: 1 });
 
     expect(document.querySelector('[aria-label="unlike this resto"]')).toBeFalsy();
   });
 
-  // 3. Memastikan bahwa resto dapat ditambahkan ke daftar favorite
   it('3) Should be able to add to the favorite resto', async () => {
     await TestFactories.createFavoriteButtonPresenterWithResto({ id: 1 });
 
@@ -37,8 +34,6 @@ describe('Liking a resto', () => {
     FavoriteRestoIdb.deleteResto(1);
   });
 
-  // 4. Memastikan bahwa resto yang sudah ditambahkan ke daftar favorite
-  // tidak dapat ditambahkan lagi
   it('4) Should not add to the favorite resto when its already favorited', async () => {
     await TestFactories.createFavoriteButtonPresenterWithResto({ id: 1 });
 
@@ -51,7 +46,6 @@ describe('Liking a resto', () => {
     await FavoriteRestoIdb.deleteResto(1);
   });
 
-  // 5. Memastikan bahwa resto dengan id 0 tidak bisa ditambahkan ke daftar favorite
   it('5) Should not add to the favorite resto when it has no id', async () => {
     await TestFactories.createFavoriteButtonPresenterWithResto({});
 

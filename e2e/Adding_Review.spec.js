@@ -30,7 +30,6 @@ Scenario('Adding Review', async ({ I }) => {
   const reviewText = 'Wow! Amajing';
   const reviewName = 'John';
 
-  // Form
   I.fillField('#reviewer-name', reviewName);
   I.fillField('#reviewer-text', reviewText);
   await I.click('#submit-review');
