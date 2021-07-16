@@ -45,13 +45,14 @@ class Hero extends HTMLElement {
           }
           
           #jumbotron p {
-            background: rgba(255, 255, 155, 0.55);
+            background: rgba(255, 255, 155, 0.34);
             margin: 0 auto;
             width: 85%;
             padding: 1.8rem;
             text-align: center;
             font-size: 1.4rem;
-            color: var(--primary-blue);
+            color: #fff;
+            text-shadow:2px 2px 2px var(--primary-blue);
             line-height: 1.2em;
             font-weight: 700;
             margin-bottom:30px;

@@ -1,23 +1,23 @@
 # Test Case
-
+---
 ## Integration Testing
 ### Menyukai Restoran
-1. Film belum disukai.
-2. Widget untuk menyukai film ditampilkan.
-3. Widget menyukai film ditekan oleh pengguna.
-4. Film ditambahkan ke daftar film yang disukai:
-   - Ternyata film sudah disukai:
+1. Resto belum disukai.
+2. Widget untuk menyukai resto ditampilkan.
+3. Widget menyukai resto ditekan oleh pengguna.
+4. Resto ditambahkan ke daftar resto yang disukai:
+   - Ternyata resto sudah disukai:
      - Tidak perlu menyimpan kembali.
-   - Data film tidak memiliki ID:
+   - Data resto tidak memiliki ID:
      - Sistem tidak memproses penyimpanan.
      - SIstem tidak gagal.
 
 ### Batal Menyukai Restoran
-1. Film sudah disukai.
-2. Widget untuk batal menyukai film ditampilkan.
+1. Resto sudah disukai.
+2. Widget untuk batal menyukai resto ditampilkan.
 3. Widget pembatalan ditekan oleh pengguna.
-4. Film dihapus dari daftar film yang disukai:
-   - Ternyata film tidak ada dalam daftar film yang disukai.
+4. Resto dihapus dari daftar resto yang disukai:
+   - Ternyata resto tidak ada dalam daftar resto yang disukai.
 
 ## End to End Test
 
