@@ -83,6 +83,7 @@ class AppBar extends HTMLElement {
           width: 100%;
           padding: 0.4em 0.8em;
           border-radius: 5px;
+          min-height:44px !important;
         }
 
         .navbar-link:focus,

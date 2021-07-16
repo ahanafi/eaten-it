@@ -1,5 +1,5 @@
-import largeImage from '../../../dist/images/heros/hero-bg-large.jpg';
-import smallImage from '../../../dist/images/heros/hero-bg-small.jpg';
+import largeImage from '../../public/images/heros/hero-bg-large.jpg';
+import smallImage from '../../public/images/heros/hero-bg-small.jpg';
 
 class Hero extends HTMLElement {
   constructor() {
